@@ -1,0 +1,55 @@
++-------------------+         +------------------+
+|   Department      |         |    Instructor    |
+|-------------------|         |------------------|
+| DepartmentID (PK) |<------- | InstructorID (PK)|
+| DepartmentName    | 1     N | DepartmentID (FK)|
+| Location          |         | InstructorName   |
++-------------------+         | Email            |
+                              +------------------+
+                                       |
+                                       |
+                                       |
+                                       |
+                              +------------------+
+                              |      Course      |
+                              |------------------|
+                              | CourseID (PK)    |
+                              | CourseName       |
+                              | DepartmentID (FK)|
+                              | InstructorID (FK)|
+                              | Credits          |
+                              +------------------+
+                                       |
+                                       |
+                                       |
+                                       |
+                              +------------------+
+                              |   Enrollment     |
+                              |------------------|
+                              | EnrollmentID (PK)|
+                              | StudentID (FK)   |
+                              | CourseID (FK)    |
+                              | EnrollmentDate   |
+                              +------------------+
+                                       |
+                                       |
+                                       |
+                                       |
+                              +------------------+
+                              |     Student      |
+                              |------------------|
+                              | StudentID (PK)   |
+                              | StudentName      |
+                              | Email            |
+                              | Birthdate        |
+                              +------------------+
++-------------------+
+|    University     |
+|-------------------|
+| SerialNO (PK)     |
+| DepartmentID (FK) |
+| InstructorID (FK) |
+| CourseID (FK)     |
+| StudentID (FK)    |
+| EnrollmentID (FK) |
++-------------------+
