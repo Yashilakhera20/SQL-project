@@ -1,5 +1,3 @@
-CREATE TABLE University (DepartmentID INT,InstructorID INT,CourseID INT,StudentID INT,EnrollmentID INT
-);
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY,
     DepartmentName VARCHAR(100) NOT NULL,
@@ -35,6 +33,11 @@ CREATE TABLE Enrollment (
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
     FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
 );
+CREATE TABLE University (SerialNO INT PRIMARY KEY,DepartmentID INT,InstructorID INT,
+    CourseID INT,StudentID INT,EnrollmentID INT
+);
+INSERT INTO University(SerialNO , DepartmentID, InstructorID,
+    CourseID, StudentID, EnrollmentID) VALUES (1,1,4,4,11,101),(2,2,5,5,12,102);
 INSERT INTO Department (DepartmentID, DepartmentName, Location) VALUES
     (1, 'Computer Science', 'Building C'),
     (2, 'Biology', 'Lab Wing');
@@ -48,8 +51,12 @@ INSERT INTO Course (CourseID, CourseName, DepartmentID, InstructorID, Credits) V
     (5, 'Genetics', 2, 5, 4);
 
 INSERT INTO Student (StudentID, StudentName, Email, Birthdate) VALUES
-    (4, 'Riya', 'riya@example.com', '2000-05-15'),
-    (5, 'Kiran', 'kiran@example.com', '2001-02-20');
+    (11, 'Riya', 'riya@example.com', '2000-05-15'),
+    (12, 'Krishna', 'krishna@example.com', '2001-02-20');
+
+INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID, EnrollmentDate) VALUES
+    (101,11,4, '2019-06-15'),
+    (102,12,5, '2018-08-20');
 
 Select * from University;
 Select * from Department;
