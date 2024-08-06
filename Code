@@ -1,3 +1,4 @@
+CREATE TABLE University (DepartmentID INT,InstructorID INT,CourseID INT,StudentID INT,EnrollmentID INT);
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY,
     DepartmentName VARCHAR(100) NOT NULL,
@@ -49,8 +50,9 @@ INSERT INTO Student (StudentID, StudentName, Email, Birthdate) VALUES
     (4, 'Riya', 'riya@example.com', '2000-05-15'),
     (5, 'Kiran', 'kiran@example.com', '2001-02-20');
 
+Select * from University;
 Select * from Department;
-Select * from Course;
 Select * from Instructor;
+Select * from Course;
 Select * from Student;
 Select * from Enrollment;
