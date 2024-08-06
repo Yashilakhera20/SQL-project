@@ -1,4 +1,5 @@
-CREATE TABLE University (DepartmentID INT,InstructorID INT,CourseID INT,StudentID INT,EnrollmentID INT);
+CREATE TABLE University (DepartmentID INT,InstructorID INT,CourseID INT,StudentID INT,EnrollmentID INT
+);
 CREATE TABLE Department (
     DepartmentID INT PRIMARY KEY,
     DepartmentName VARCHAR(100) NOT NULL,
