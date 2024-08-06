@@ -1,0 +1,56 @@
+CREATE TABLE Department (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(100) NOT NULL,
+    Location VARCHAR(100)
+);
+CREATE TABLE Instructor (
+    InstructorID INT PRIMARY KEY,
+    InstructorName VARCHAR(100) NOT NULL,
+    DepartmentID INT,
+    Email VARCHAR(100), 
+    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)
+);
+CREATE TABLE Course (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(100) NOT NULL,
+    DepartmentID INT,
+    InstructorID INT,
+    Credits INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
+    FOREIGN KEY (InstructorID) REFERENCES Instructor(InstructorID)
+);
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100), 
+    Birthdate DATE 
+);
+CREATE TABLE Enrollment (
+    EnrollmentID INT PRIMARY KEY,
+    StudentID INT,
+    CourseID INT,
+    EnrollmentDate DATETIME, 
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
+INSERT INTO Department (DepartmentID, DepartmentName, Location) VALUES
+    (1, 'Computer Science', 'Building C'),
+    (2, 'Biology', 'Lab Wing');
+
+INSERT INTO Instructor (InstructorID, InstructorName, DepartmentID, Email) VALUES
+    (4, 'Prof. Gupta', 1, 'gupta@example.com'),
+    (5, 'Dr. Patel', 2, 'patel@example.com');
+
+INSERT INTO Course (CourseID, CourseName, DepartmentID, InstructorID, Credits) VALUES
+    (4, 'Data Structures', 1, 4, 3),
+    (5, 'Genetics', 2, 5, 4);
+
+INSERT INTO Student (StudentID, StudentName, Email, Birthdate) VALUES
+    (4, 'Riya', 'riya@example.com', '2000-05-15'),
+    (5, 'Kiran', 'kiran@example.com', '2001-02-20');
+
+Select * from Department;
+Select * from Course;
+Select * from Instructor;
+Select * from Student;
+Select * from Enrollment;
